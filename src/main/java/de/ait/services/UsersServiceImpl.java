@@ -46,4 +46,22 @@ public class UsersServiceImpl implements UsersService {
         }
         return sum/users.size();
     }
+
+    @Override
+    public String getNameAndFamilyNameLowest() {
+        List<User> users = usersRepository.findAll();
+        Map<Double, String> userHeightLastName = new HashMap<>();
+        Map<Double, String> userHeightFamilyName = new HashMap<>();
+
+        for (User user : users) {
+            userHeightLastName.put(user.getHeight(), user.getLastName());
+            userHeightFamilyName.put(user.getHeight(),user.getFirstName());
+        }
+
+        Double maxHeight = Collections.max(userHeightLastName.keySet());
+        Double maxHeight1 = Collections.max(userHeightFamilyName.keySet());
+
+        return "" + userHeightFamilyName.get(maxHeight) + " " + userHeightLastName.get(maxHeight1);
+
+    }
 }

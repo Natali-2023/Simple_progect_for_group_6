@@ -8,4 +8,5 @@ public interface UsersService {
     String getLastNameOfMostAging();
 
     double getMiddleAge();
+    String getNameAndFamilyNameLowest();
 }

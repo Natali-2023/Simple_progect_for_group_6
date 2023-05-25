@@ -55,6 +55,11 @@ public class Main {
 
                     break;
 
+                case 6:
+                    System.out.println("Выводим имя и фамилию самого низкого человека");
+                    String nameAndFamilyName = usersService.getNameAndFamilyNameLowest();
+                    System.out.println(nameAndFamilyName);
+
 
                 case 0:
                     System.out.println("Выход");
