@@ -39,15 +39,11 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public double getMiddleAge() {
         List<User> users = usersRepository.findAll();
-        Map<Integer, String> userAge = new HashMap<>();
 
-        for (User user : users) {
-            userAge.put(user.getAge(), user.getLastName());
-        }
         double sum =0;
         for (User user : users) {
             sum += user.getAge();
         }
-        return sum/userAge.size();
+        return sum/users.size();
     }
 }
