@@ -47,6 +47,15 @@ public class Main {
                     System.out.println(lastName);
 
                     break;
+
+                case 4:
+                    System.out.println("Выводим средний возраст всех пользователей");
+                    double middleAge = usersService.getMiddleAge();
+                    System.out.println(middleAge);
+
+                    break;
+
+
                 case 0:
                     System.out.println("Выход");
                     System.exit(0);
