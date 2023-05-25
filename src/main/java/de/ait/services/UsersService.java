@@ -10,4 +10,5 @@ public interface UsersService {
     double getMiddleAge();
     String getNameAndFamilyNameLowest();
     String addNewPerson();
+    int getAgeOfTheTallest();
 }
