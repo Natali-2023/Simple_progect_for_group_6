@@ -21,7 +21,7 @@ public class Main {
             System.out.println("1. Вывести имена всех пользователей");
             System.out.println("2. Вывести фамилию самого взрослого пользователя");
 
-            System.out.println("3. Сохранить нового пользователя");
+            System.out.println("3. Добавить нового пользователя");
             System.out.println("4. Вывести средний возраст всех пользователей");
             System.out.println("5. Вывести возраст самого высокого человека");
             System.out.println("6. Вывести имя и фамилию самого низкого человека");
@@ -47,6 +47,10 @@ public class Main {
                     System.out.println(lastName);
 
                     break;
+                case 3:
+                    System.out.println("Добавление нового пользователя");
+                    usersService.addNewPerson();
+                    break;
 
                 case 4:
                     System.out.println("Выводим средний возраст всех пользователей");
@@ -59,6 +63,7 @@ public class Main {
                     System.out.println("Выводим имя и фамилию самого низкого человека");
                     String nameAndFamilyName = usersService.getNameAndFamilyNameLowest();
                     System.out.println(nameAndFamilyName);
+                    break;
 
 
                 case 0:

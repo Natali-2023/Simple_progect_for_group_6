@@ -3,6 +3,9 @@ package de.ait.services;
 import de.ait.models.User;
 import de.ait.repositories.UsersRepository;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.*;
 
 public class UsersServiceImpl implements UsersService {
@@ -63,5 +66,36 @@ public class UsersServiceImpl implements UsersService {
 
         return "" + userHeightFamilyName.get(maxHeight) + " " + userHeightLastName.get(maxHeight1);
 
+    }
+
+    @Override
+    public String addNewPerson() {
+
+        try(FileWriter writer = new FileWriter("users.txt", true))
+        {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите имя");
+            String name = scanner.nextLine();
+            writer.write(name + "|");
+
+            System.out.println("Введите фамилию");
+            String famimlyName = scanner.nextLine();
+            writer.write(famimlyName + "|");
+
+            System.out.println("Введите возраст");
+            String  age = scanner.nextLine();
+            writer.write(age + "|");
+
+            System.out.println("Введите рост");
+            String height = scanner.nextLine();
+            writer.write(height);
+
+
+        }catch (Exception e){
+            System.out.println("Ошибка");
+        }
+
+
+        return "";
     }
 }
