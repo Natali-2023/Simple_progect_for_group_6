@@ -59,6 +59,13 @@ public class Main {
 
                     break;
 
+                case 5:
+                    System.out.println("Выводим возраст самого высокого человека");
+                    int age = usersService.getAgeOfTheTallest();
+                    System.out.println(age);
+
+                    break;
+
                 case 6:
                     System.out.println("Выводим имя и фамилию самого низкого человека");
                     String nameAndFamilyName = usersService.getNameAndFamilyNameLowest();
