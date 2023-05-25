@@ -61,10 +61,10 @@ public class UsersServiceImpl implements UsersService {
             userHeightFamilyName.put(user.getHeight(),user.getFirstName());
         }
 
-        Double maxHeight = Collections.max(userHeightLastName.keySet());
-        Double maxHeight1 = Collections.max(userHeightFamilyName.keySet());
+        Double minHeight = Collections.min(userHeightLastName.keySet());
+        Double minHeight1 = Collections.min(userHeightFamilyName.keySet());
 
-        return "" + userHeightFamilyName.get(maxHeight) + " " + userHeightLastName.get(maxHeight1);
+        return "" + userHeightFamilyName.get(minHeight) + " " + userHeightLastName.get(minHeight1);
 
     }
 
@@ -76,11 +76,11 @@ public class UsersServiceImpl implements UsersService {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Введите имя");
             String name = scanner.nextLine();
-            writer.write(name + "|");
+            writer.write( "\n" + name + "|");
 
             System.out.println("Введите фамилию");
             String famimlyName = scanner.nextLine();
-            writer.write(famimlyName + "|");
+            writer.write( famimlyName + "|");
 
             System.out.println("Введите возраст");
             String  age = scanner.nextLine();
@@ -89,6 +89,7 @@ public class UsersServiceImpl implements UsersService {
             System.out.println("Введите рост");
             String height = scanner.nextLine();
             writer.write(height);
+
 
 
         }catch (Exception e){
