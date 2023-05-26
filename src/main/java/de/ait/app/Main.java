@@ -31,6 +31,7 @@ public class Main {
             int command = scanner.nextInt();
             scanner.nextLine();
 
+
             switch (command) {
                 case 1:
                     System.out.println("Выводим имена пользователей...");
@@ -49,7 +50,30 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Добавление нового пользователя");
-                    usersService.addNewPerson();
+                    String writerTemp="";
+                    String temp = "";
+
+                    scanner = new Scanner(System.in);
+
+                    System.out.println("Введите имя");
+                    temp = scanner.nextLine();
+                    writerTemp=temp + "|";
+
+                    System.out.println("Введите фамилию");
+                    temp = scanner.nextLine();
+                    writerTemp=writerTemp + temp+ "|";
+
+                    System.out.println("Введите возраст");
+                    temp = scanner.nextLine();
+                    writerTemp=writerTemp + temp+ "|";
+
+                    System.out.println("Введите рост");
+                    temp = scanner.nextLine();
+                    writerTemp=writerTemp + temp;
+
+                    usersRepository.addPerson(writerTemp);
+
+
                     break;
 
                 case 4:
@@ -67,8 +91,8 @@ public class Main {
 
                 case 6:
                     System.out.println("Выводим имя и фамилию самого низкого человека");
-                    String nameAndFamilyName = usersService.getNameAndFamilyNameOfShortest();
-                    System.out.println(nameAndFamilyName);
+
+
                     break;
 
 

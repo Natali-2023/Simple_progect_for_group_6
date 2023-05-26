@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface UsersRepository {
     List<User> findAll();
-}
+
+
+    public void addPerson(String x);
+
+    }

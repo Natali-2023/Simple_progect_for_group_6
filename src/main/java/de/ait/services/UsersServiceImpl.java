@@ -71,30 +71,7 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public String addNewPerson() {
 
-        try(FileWriter writer = new FileWriter("users.txt", true))
-        {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Введите имя");
-            String name = scanner.nextLine();
-            writer.write( "\n" + name + "|");
 
-            System.out.println("Введите фамилию");
-            String famimlyName = scanner.nextLine();
-            writer.write( famimlyName + "|");
-
-            System.out.println("Введите возраст");
-            String  age = scanner.nextLine();
-            writer.write(age + "|");
-
-            System.out.println("Введите рост");
-            String height = scanner.nextLine();
-            writer.write(height);
-
-
-
-        }catch (Exception e){
-            System.out.println("Ошибка");
-        }
 
 
         return "";

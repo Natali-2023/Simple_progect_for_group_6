@@ -1,7 +1,9 @@
 package de.ait.repositories;
 
+import de.ait.app.Main;
 import de.ait.models.User;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,5 +21,17 @@ public class UsersRepositoryListImpl implements UsersRepository {
         users.add(user2);
 
         return users;
+    }
+
+    @Override
+    public void addPerson(String x) {
+        try(FileWriter writer = new FileWriter("users.txt", true))
+        {
+         writer.write(x);
+
+
+        }catch (Exception e){
+            System.out.println("Ошибка");
+        }
     }
 }

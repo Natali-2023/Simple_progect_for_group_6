@@ -4,6 +4,7 @@ import de.ait.models.User;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,20 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
 
         return users;
     }
+
+    @Override
+    public void addPerson(String x) {
+        try(FileWriter writer = new FileWriter("users.txt", true))
+        {
+            writer.write("\n");
+            writer.write(x);
+
+
+        }catch (Exception e){
+            System.out.println("Ошибка");
+        }
+       }
+
     private static User parseLine(String line) {
         String[] parsed = line.split("\\|");
         String firstName = parsed[0];
