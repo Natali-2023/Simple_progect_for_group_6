@@ -5,7 +5,6 @@ import de.ait.repositories.UsersRepositoryListImpl;
 import de.ait.repositories.UsersRepositoryTextFileImpl;
 import de.ait.services.UsersService;
 import de.ait.services.UsersServiceImpl;
-import org.w3c.dom.ls.LSOutput;
 
 import java.util.List;
 import java.util.Scanner;
@@ -68,7 +67,7 @@ public class Main {
 
                 case 6:
                     System.out.println("Выводим имя и фамилию самого низкого человека");
-                    String nameAndFamilyName = usersService.getNameAndFamilyNameLowest();
+                    String nameAndFamilyName = usersService.getNameAndFamilyNameOfShortest();
                     System.out.println(nameAndFamilyName);
                     break;
 

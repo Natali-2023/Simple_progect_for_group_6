@@ -51,7 +51,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public String getNameAndFamilyNameLowest() {
+    public String getNameAndFamilyNameOfShortest() {
         List<User> users = usersRepository.findAll();
         Map<Double, String> userHeightLastName = new HashMap<>();
         Map<Double, String> userHeightFamilyName = new HashMap<>();
