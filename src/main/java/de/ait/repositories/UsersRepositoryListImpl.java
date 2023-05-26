@@ -31,7 +31,7 @@ public class UsersRepositoryListImpl implements UsersRepository {
 
 
         }catch (Exception e){
-            System.out.println("Ошибка");
+            System.out.println("Ошибочка");
         }
     }
 }
