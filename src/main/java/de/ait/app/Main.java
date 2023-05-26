@@ -65,12 +65,17 @@ public class Main {
 
                     System.out.println("Введите возраст");
                     temp = scanner.nextLine();
-                    writerTemp=writerTemp + temp+ "|";
+                    if (temp.charAt(0)=='-'){
+                        System.out.println("Вы ввели отрицательное значение возраста." +
+                                " Повторите еще раз создание пользователя");
+                    break;
+                    }else {
+                        writerTemp = writerTemp + temp + "|";
+                    }
 
                     System.out.println("Введите рост");
                     temp = scanner.nextLine();
                     writerTemp=writerTemp + temp;
-
 
 
                     break;
