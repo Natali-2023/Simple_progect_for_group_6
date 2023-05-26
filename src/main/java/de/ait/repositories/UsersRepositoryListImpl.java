@@ -27,7 +27,7 @@ public class UsersRepositoryListImpl implements UsersRepository {
     public void addPerson(String x) {
         try(FileWriter writer = new FileWriter("users.txt", true))
         {
-         writer.write(x);
+            writer.write(x);
 
 
         }catch (Exception e){

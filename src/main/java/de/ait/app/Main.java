@@ -71,7 +71,6 @@ public class Main {
                     temp = scanner.nextLine();
                     writerTemp=writerTemp + temp;
 
-                    usersRepository.addPerson(writerTemp);
 
 
                     break;
@@ -91,6 +90,8 @@ public class Main {
 
                 case 6:
                     System.out.println("Выводим имя и фамилию самого низкого человека");
+                    String nameAndFamilyName = usersService.getNameAndFamilyNameOfShortest();
+                    System.out.println(nameAndFamilyName);
 
 
                     break;

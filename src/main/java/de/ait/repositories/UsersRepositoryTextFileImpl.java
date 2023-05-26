@@ -1,3 +1,4 @@
+
 package de.ait.repositories;
 
 import de.ait.models.User;
@@ -21,7 +22,7 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
     public List<User> findAll() {
         List<User> users = new ArrayList<>();
 
-            try (FileReader fileReader = new FileReader(fileName);
+        try (FileReader fileReader = new FileReader(fileName);
              BufferedReader bufferedReader = new BufferedReader(fileReader)) {
 
             String line = bufferedReader.readLine();
@@ -49,7 +50,7 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
         }catch (Exception e){
             System.out.println("Ошибка");
         }
-       }
+    }
 
     private static User parseLine(String line) {
         String[] parsed = line.split("\\|");

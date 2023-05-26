@@ -26,6 +26,7 @@ public class UsersServiceImpl implements UsersService {
         }
         return names;
     }
+
     @Override
     public String getLastNameOfMostAging() {
         List<User> users = usersRepository.findAll();
@@ -43,11 +44,11 @@ public class UsersServiceImpl implements UsersService {
     public double getMiddleAge() {
         List<User> users = usersRepository.findAll();
 
-        double sum =0;
+        double sum = 0;
         for (User user : users) {
             sum += user.getAge();
         }
-        return sum/users.size();
+        return sum / users.size();
     }
 
     @Override
@@ -58,7 +59,7 @@ public class UsersServiceImpl implements UsersService {
 
         for (User user : users) {
             userHeightLastName.put(user.getHeight(), user.getLastName());
-            userHeightFamilyName.put(user.getHeight(),user.getFirstName());
+            userHeightFamilyName.put(user.getHeight(), user.getFirstName());
         }
 
         Double minHeight = Collections.min(userHeightLastName.keySet());
@@ -70,8 +71,6 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public String addNewPerson() {
-
-
 
 
         return "";
@@ -89,4 +88,6 @@ public class UsersServiceImpl implements UsersService {
         double maxHeight = Collections.max(userHeight.keySet());
         return userHeight.get(maxHeight);
     }
+
+
 }
