@@ -7,5 +7,5 @@ import java.util.List;
 public interface UsersRepository {
     List<User> findAll();
 
-    public void addPerson(String x); // новая реализация сканнера через main
+    public void addPerson(String x);
     }
