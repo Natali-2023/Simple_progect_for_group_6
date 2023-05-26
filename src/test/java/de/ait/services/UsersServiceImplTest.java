@@ -18,7 +18,7 @@ class UsersServiceImplTest {
 
 
     @Test
-    void getMiddleAge(){
+    void getMiddleAgeTest6(){
         double actual = usersService.getMiddleAge();
 
         assertEquals(29.666666666666668, actual);
