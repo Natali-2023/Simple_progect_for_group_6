@@ -18,23 +18,22 @@ class UsersServiceImplTest {
     }
 
 
-    @DisplayName("Выводим средний возраст всех пользователей")
+    @DisplayName("Cредний возраст")
     @Test
     void getMiddleAgeTest6(){
         double actual = usersService.getMiddleAge();
 
         assertEquals(29.666666666666668, actual);
     }
-
-    @DisplayName("Выводим возраст самого высокого человека")
+    @DisplayName("Возраст самого высокого человека")
     @Test
     void getAgeOfTheTallest_test(){
         assertEquals(29, usersService.getAgeOfTheTallest());
     }
 
-    @DisplayName("Выводим имя и фамилию самого низкого человека")
+    @DisplayName("Вывод имя и фамилию самого низкого человека")
     @Test
-    void getNameAndFamilyNameOfShortest_test(){
+    void getNameAndFamilyNameOfShortest(){
         assertEquals("Maxim Ivanov",usersService.getNameAndFamilyNameOfShortest());
     }
 
