@@ -6,6 +6,7 @@ import de.ait.repositories.UsersRepositoryTextFileImpl;
 import de.ait.services.UsersService;
 import de.ait.services.UsersServiceImpl;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -52,6 +53,8 @@ public class Main {
                     System.out.println("Добавление нового пользователя");
                     String writerTemp="";
                     String temp = "";
+                    double tempResult;
+
 
                     scanner = new Scanner(System.in);
 
@@ -69,15 +72,33 @@ public class Main {
                         System.out.println("Вы ввели отрицательное значение возраста." +
                                 " Повторите еще раз создание пользователя");
                     break;
+
                     }else {
                         writerTemp = writerTemp + temp + "|";
                     }
+                        System.out.println("Введите рост");
+                    try {
+                        Scanner scanner1 = new Scanner(System.in);
+                        tempResult = scanner1.nextDouble();
 
-                    System.out.println("Введите рост");
-                    temp = scanner.nextLine();
-                    writerTemp=writerTemp + temp;
+                    }catch (Exception e){
 
+                        System.out.println("Повторите ввод значения роста через запятую");
 
+                        break;
+
+                    }
+
+                    if (tempResult>2.5){
+                        System.out.println("Вы ввели некорректное значение роста." +
+                                " Повторите еще раз создание пользователя");
+
+                        break;
+
+                    }else {
+                        writerTemp = writerTemp + tempResult + "|";
+                        usersRepository.addPerson(writerTemp);
+                    }
                     break;
 
                 case 4:
