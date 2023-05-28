@@ -3,10 +3,7 @@ package de.ait.repositories;
 
 import de.ait.models.User;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,12 +36,19 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
         return users;
     }
 
+    public String parsLine (User user){
+
+        return user.toString();
+    }
+
     @Override
-    public void addPerson(String x) {
+    public void addPerson(User user) {
         try(FileWriter writer = new FileWriter("users.txt", true))
         {
+            String result1 =  user.getFirstName() + user.getLastName()
+            + user.getAgeString() + user.getHeight();
             writer.write("\n");
-            writer.write(x);
+            writer.write(result1);
 
 
         }catch (Exception e){

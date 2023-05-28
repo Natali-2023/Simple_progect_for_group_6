@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UsersRepositoryListImpl implements UsersRepository {
+    List<User> users = new ArrayList<>();
     @Override
     public List<User> findAll() {
         User user = new User("Marsel", "Sidikov", 29, 1.85);
@@ -15,7 +16,7 @@ public class UsersRepositoryListImpl implements UsersRepository {
         User user2 = new User("Ruslan", "Kochkin", 41, 1.83);
 
 
-        List<User> users = new ArrayList<>();
+
         users.add(user);
         users.add(user1);
         users.add(user2);
@@ -24,14 +25,8 @@ public class UsersRepositoryListImpl implements UsersRepository {
     }
 
     @Override
-    public void addPerson(String x) {
-        try(FileWriter writer = new FileWriter("users.txt", true))
-        {
-         writer.write(x);
+    public void addPerson(User user) {
+        users.add(user);
 
-
-        }catch (Exception e){
-            System.out.println("Ошибочка");
-        }
     }
 }

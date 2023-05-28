@@ -1,5 +1,6 @@
 package de.ait.app;
 
+import de.ait.models.User;
 import de.ait.repositories.UsersRepository;
 import de.ait.repositories.UsersRepositoryListImpl;
 import de.ait.repositories.UsersRepositoryTextFileImpl;
@@ -51,30 +52,34 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Добавление нового пользователя");
-                    String writerTemp="";
-                    String temp = "";
+                    String name="";
+                    String familyName = "";
+                    int ageUser = 0;
+                    String ageUserString = "";
+                    String height = "";
+
                     double tempResult;
 
 
                     scanner = new Scanner(System.in);
 
                     System.out.println("Введите имя");
-                    temp = scanner.nextLine();
-                    writerTemp=temp + "|";
+                    name = scanner.nextLine();
+                    name=name + "|";
 
                     System.out.println("Введите фамилию");
-                    temp = scanner.nextLine();
-                    writerTemp=writerTemp + temp+ "|";
+                    familyName = scanner.nextLine();
+                    familyName= familyName + "|";
 
                     System.out.println("Введите возраст");
-                    temp = scanner.nextLine();
-                    if (temp.charAt(0)=='-'){
+                    ageUser = scanner.nextInt();
+                    if (ageUser < 0){
                         System.out.println("Вы ввели отрицательное значение возраста." +
                                 " Повторите еще раз создание пользователя");
                     break;
 
                     }else {
-                        writerTemp = writerTemp + temp + "|";
+                      ageUserString = ageUser + "|";
                     }
                         System.out.println("Введите рост");
                     try {
@@ -96,8 +101,24 @@ public class Main {
                         break;
 
                     }else {
-                        writerTemp = writerTemp + tempResult + "|";
-                        usersRepository.addPerson(writerTemp);
+                        height = tempResult + "|";
+
+                    }
+
+                    System.out.println("Куда добавить нового пользователя?");
+                    System.out.println("1. В текстовый файл");
+                    System.out.println("2. В лист пользователей");
+                    scanner.nextLine();
+
+                    String answer = scanner.nextLine();
+                    if (answer.charAt(0) == '1'){
+                        User user = new User(name,familyName,ageUserString,tempResult);
+                        UsersRepositoryTextFileImpl usersRepositoryTextFile = new UsersRepositoryTextFileImpl("");
+                        usersRepositoryTextFile.addPerson(user);
+                    } else if (answer.charAt(0) == '2') {
+                        User user = new User(name,familyName,ageUser,tempResult);
+                        UsersRepositoryListImpl usersRepositoryList = new UsersRepositoryListImpl();
+                        usersRepositoryList.addPerson(user);
                     }
                     break;
 
