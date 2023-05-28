@@ -36,22 +36,21 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
         return users;
     }
 
-    public String parsLine (User user){
 
-        return user.toString();
-    }
 
     @Override
+
     public void addPerson(User user) {
-        try(FileWriter writer = new FileWriter("users.txt", true))
-        {
-            String result1 =  user.getFirstName() + user.getLastName()
-            + user.getAgeString() + user.getHeight();
+
+
+        try (FileWriter writer = new FileWriter("users.txt", true)) {
+            String result1 = user.getFirstName() + user.getLastName()
+                    + user.getAgeString() + user.getHeight();
             writer.write("\n");
             writer.write(result1);
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Ошибка");
         }
     }
