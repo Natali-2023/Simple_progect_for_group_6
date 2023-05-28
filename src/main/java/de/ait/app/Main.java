@@ -53,6 +53,7 @@ public class Main {
                     System.out.println("Добавление нового пользователя");
                     String writerTemp="";
                     String temp = "";
+                    int tempAge =0 ;
                     double tempResult;
 
 
@@ -67,14 +68,14 @@ public class Main {
                     writerTemp=writerTemp + temp+ "|";
 
                     System.out.println("Введите возраст");
-                    temp = scanner.nextLine();
-                    if (temp.charAt(0)=='-'){
+                    tempAge = scanner.nextInt();
+                    if (tempAge<0){
                         System.out.println("Вы ввели отрицательное значение возраста." +
                                 " Повторите еще раз создание пользователя");
                         break;
 
                     }else {
-                        writerTemp = writerTemp + temp + "|";
+                        writerTemp = writerTemp + tempAge + "|";
                     }
                     System.out.println("Введите рост");
                     try {
@@ -96,7 +97,7 @@ public class Main {
                         break;
 
                     }else {
-                        writerTemp = writerTemp + tempResult + "|";
+                        writerTemp = writerTemp + tempResult ;
                         usersRepository.addPerson(writerTemp);
                     }
                     break;
