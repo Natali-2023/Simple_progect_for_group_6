@@ -40,7 +40,7 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
     }
 
     @Override
-    public void addPerson(String x) {
+    public  void addPerson(String x) {
         try(FileWriter writer = new FileWriter("users.txt", true))
         {
             writer.write("\n");

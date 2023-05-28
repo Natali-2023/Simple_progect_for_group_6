@@ -38,7 +38,7 @@ public class Main {
                     System.out.println("Выводим имена пользователей...");
 
                     List<String> names = usersService.getNames();
-                        for (String name : names) {
+                    for (String name : names) {
                         System.out.println(name);
                     }
 
@@ -71,12 +71,12 @@ public class Main {
                     if (temp.charAt(0)=='-'){
                         System.out.println("Вы ввели отрицательное значение возраста." +
                                 " Повторите еще раз создание пользователя");
-                    break;
+                        break;
 
                     }else {
                         writerTemp = writerTemp + temp + "|";
                     }
-                        System.out.println("Введите рост");
+                    System.out.println("Введите рост");
                     try {
                         Scanner scanner1 = new Scanner(System.in);
                         tempResult = scanner1.nextDouble();
