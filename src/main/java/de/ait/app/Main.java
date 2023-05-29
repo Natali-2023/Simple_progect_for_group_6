@@ -1,13 +1,11 @@
 package de.ait.app;
 
-import de.ait.models.User;
 import de.ait.repositories.UsersRepository;
 import de.ait.repositories.UsersRepositoryListImpl;
 import de.ait.repositories.UsersRepositoryTextFileImpl;
 import de.ait.services.UsersService;
 import de.ait.services.UsersServiceImpl;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -52,43 +50,42 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Добавление нового пользователя");
-                    String firstNameTemp = "";
-                    String lastNameTemp = "";
-                    int ageTemp = 0;
-                    double heightTemp = 0.0;
+                    String name = "";
+                    String familyName = "";
+                    int ageUser = 0;
+                    String ageUserString = "";
+
+
+                    double tempResult;
+
 
                     scanner = new Scanner(System.in);
 
                     System.out.println("Введите имя");
-                    firstNameTemp = scanner.nextLine();
+                    name = scanner.nextLine();
+
 
                     System.out.println("Введите фамилию");
-                    lastNameTemp = scanner.nextLine();
+                    familyName = scanner.nextLine();
 
                     System.out.println("Введите возраст");
-                    ageTemp = scanner.nextInt();
-                    if (ageTemp < 0) {
+                    ageUser = scanner.nextInt();
+                    if (ageUser < 0) {
                         System.out.println("Вы ввели отрицательное значение возраста." +
                                 " Повторите еще раз создание пользователя");
                         break;
                     }
-                    System.out.println("Введите рост");
+                    double height = 0;
                     try {
+                        System.out.println("Введите рост");
                         Scanner scanner1 = new Scanner(System.in);
-                        heightTemp = scanner1.nextDouble();
-                    } catch (Exception e) {
-                        System.out.println("Повторите ввод значения роста через запятую");
-                        break;
-                    }
+                        height = scanner1.nextDouble();
 
-                    if (heightTemp > 2.5) {
-                        System.out.println("Вы ввели некорректное значение роста." +
-                                " Повторите еще раз создание пользователя");
+                    } catch (Exception e) {
+                        System.out.println("Не корректно введен рост.Введите значение через запятую");
                         break;
-                    } else {
-                        User user = new User(firstNameTemp, lastNameTemp, ageTemp, heightTemp);
-                        usersRepository.addPerson(user);
                     }
+                    usersService.createUser(name, familyName, ageUser, height);
                     break;
 
                 case 4:
@@ -101,12 +98,15 @@ public class Main {
                     System.out.println("Выводим возраст самого высокого человека");
                     int age = usersService.getAgeOfTheTallest();
                     System.out.println(age);
+
                     break;
 
                 case 6:
                     System.out.println("Выводим имя и фамилию самого низкого человека");
                     String nameAndFamilyName = usersService.getNameAndFamilyNameOfShortest();
                     System.out.println(nameAndFamilyName);
+
+
                     break;
 
 
@@ -119,4 +119,3 @@ public class Main {
         }
     }
 }
-
