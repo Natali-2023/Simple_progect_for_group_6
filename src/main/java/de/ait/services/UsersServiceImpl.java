@@ -3,9 +3,6 @@ package de.ait.services;
 import de.ait.models.User;
 import de.ait.repositories.UsersRepository;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.util.*;
 
 public class UsersServiceImpl implements UsersService {
@@ -70,13 +67,6 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public String addNewPerson() {
-
-
-        return "";
-    }
-
-    @Override
     public int getAgeOfTheTallest() {
         List<User> users = usersRepository.findAll();
         Map<Double, Integer> userHeight = new HashMap<>();
@@ -89,5 +79,10 @@ public class UsersServiceImpl implements UsersService {
         return userHeight.get(maxHeight);
     }
 
+    @Override
+    public void createUser(String name, String familyName, int ageUser, double height) {
+        User user = new User(name,familyName,ageUser,height);
+        usersRepository.save(user);
+    }
 
 }

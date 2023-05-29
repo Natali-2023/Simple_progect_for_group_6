@@ -40,16 +40,14 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
 
     @Override
 
-    public void addPerson(User user) {
+    public void save(User user) {
 
 
 
         try (FileWriter writer = new FileWriter("users.txt", true)) {
-            String ageString = String.valueOf(user.getAge());
-            String result1 = user.getFirstName() + user.getLastName()
-                    + ageString + "|" + user.getHeight();
-            writer.write("\n");
-            writer.write(result1);
+
+
+            writer.write(userToString(user));
 
 
         } catch (Exception e) {
@@ -67,5 +65,9 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
         return new User(
                 firstName, lastName, age, height
         );
+    }
+    private static String userToString(User user){
+        return "\n" + user.getFirstName() + "|" + user.getLastName() + "|"
+                + user.getAge() + "|" + user.getHeight();
     }
 }

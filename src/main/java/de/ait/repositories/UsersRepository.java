@@ -8,6 +8,6 @@ public interface UsersRepository {
     List<User> findAll();
 
 
-    public void addPerson(User user);
+    public void save(User user);
 
     }

@@ -9,6 +9,8 @@ public interface UsersService {
 
     double getMiddleAge();
     String getNameAndFamilyNameOfShortest();
-    String addNewPerson();
+
     int getAgeOfTheTallest();
+
+   void createUser(String name,String familyName,int ageUser,double height);
 }
