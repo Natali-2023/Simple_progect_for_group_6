@@ -85,6 +85,10 @@ public class Main {
                         System.out.println("Не корректно введен рост.Введите значение через запятую");
                         break;
                     }
+                    if (height>2.5){
+                        System.out.println("Человека с таким ростом пока не существует. Повторите ввод.");
+                        break;
+                    }
                     usersService.createUser(name, familyName, ageUser, height);
                     break;
 
