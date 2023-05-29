@@ -1,4 +1,5 @@
 
+
 package de.ait.repositories;
 
 import de.ait.models.User;
@@ -45,9 +46,8 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
 
 
         try (FileWriter writer = new FileWriter("users.txt", true)) {
-            String ageString = String.valueOf(user.getAge());
-            String result1 = user.getFirstName() + user.getLastName()
-                    + ageString + "|" + user.getHeight();
+           String result1 = user.getFirstName() +"|" + user.getLastName()+"|"
+                    + user.getAge() + "|" + user.getHeight();
             writer.write("\n");
             writer.write(result1);
 

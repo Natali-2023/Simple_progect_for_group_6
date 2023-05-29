@@ -39,7 +39,7 @@ public class Main {
                     System.out.println("Выводим имена пользователей...");
 
                     List<String> names = usersService.getNames();
-                        for (String name : names) {
+                    for (String name : names) {
                         System.out.println(name);
                     }
 
@@ -52,60 +52,43 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Добавление нового пользователя");
-                    String name="";
-                    String familyName = "";
-                    int ageUser = 0;
-                    String ageUserString = "";
-                    String height = "";
-
-                    double tempResult;
-
+                    String firstNameTemp = "";
+                    String lastNameTemp = "";
+                    int ageTemp = 0;
+                    double heightTemp = 0.0;
 
                     scanner = new Scanner(System.in);
 
                     System.out.println("Введите имя");
-                    name = scanner.nextLine();
-                    name=name + "|";
+                    firstNameTemp = scanner.nextLine();
 
                     System.out.println("Введите фамилию");
-                    familyName = scanner.nextLine();
-                    familyName= familyName + "|";
+                    lastNameTemp = scanner.nextLine();
 
                     System.out.println("Введите возраст");
-                    ageUser = scanner.nextInt();
-                    if (ageUser < 0){
+                    ageTemp = scanner.nextInt();
+                    if (ageTemp < 0) {
                         System.out.println("Вы ввели отрицательное значение возраста." +
                                 " Повторите еще раз создание пользователя");
-                    break;
-
+                        break;
                     }
-                        System.out.println("Введите рост");
+                    System.out.println("Введите рост");
                     try {
                         Scanner scanner1 = new Scanner(System.in);
-                        tempResult = scanner1.nextDouble();
-
-                    }catch (Exception e){
-
+                        heightTemp = scanner1.nextDouble();
+                    } catch (Exception e) {
                         System.out.println("Повторите ввод значения роста через запятую");
-
                         break;
-
                     }
 
-                    if (tempResult>2.5){
+                    if (heightTemp > 2.5) {
                         System.out.println("Вы ввели некорректное значение роста." +
                                 " Повторите еще раз создание пользователя");
-
                         break;
-
-                    }else {
-                        height = tempResult + "|";
-
+                    } else {
+                        User user = new User(firstNameTemp, lastNameTemp, ageTemp, heightTemp);
+                        usersRepository.addPerson(user);
                     }
-                    User user = new User(name,familyName,ageUser,tempResult);
-                    usersRepository.addPerson(user);
-
-
                     break;
 
                 case 4:
@@ -118,15 +101,12 @@ public class Main {
                     System.out.println("Выводим возраст самого высокого человека");
                     int age = usersService.getAgeOfTheTallest();
                     System.out.println(age);
-
                     break;
 
                 case 6:
                     System.out.println("Выводим имя и фамилию самого низкого человека");
                     String nameAndFamilyName = usersService.getNameAndFamilyNameOfShortest();
                     System.out.println(nameAndFamilyName);
-
-
                     break;
 
 
@@ -139,3 +119,4 @@ public class Main {
         }
     }
 }
+

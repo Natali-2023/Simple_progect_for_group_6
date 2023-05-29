@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.*;
-
+import java.util.Scanner;
 public class UsersServiceImpl implements UsersService {
 
     private UsersRepository usersRepository;
@@ -70,11 +70,40 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public String addNewPerson() {
+    public  User addNewPerson() {
+        Scanner scanner = new Scanner(System.in);
+        String firstNameTemp = "";
+        String lastNameTemp = "";
+        int ageTemp = 0;
+        double heightTemp;
+        User user = new User(null, null, 0, 0.0);
 
+        System.out.println("Добавление нового пользователя");
+        scanner = new Scanner(System.in);
 
-        return "";
+        System.out.println("Введите имя");
+        firstNameTemp = scanner.nextLine();
+
+        System.out.println("Введите фамилию");
+        lastNameTemp = scanner.nextLine();
+
+        System.out.println("Введите возраст");
+        ageTemp = scanner.nextInt();
+          System.out.println("Введите рост");
+        heightTemp = 0;
+        try {
+            Scanner scanner1 = new Scanner(System.in);
+            heightTemp = scanner1.nextDouble();
+
+        } catch (Exception e) {
+            System.out.println("Повторите ввод значения роста через запятую");
+
+        }
+
+        user = new User(firstNameTemp, lastNameTemp, ageTemp, heightTemp);
+        return user;
     }
+
 
     @Override
     public int getAgeOfTheTallest() {
