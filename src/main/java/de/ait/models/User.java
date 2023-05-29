@@ -14,13 +14,8 @@ public class User {
         this.age = age ;
         this.height = height;
     }
-    public User(String firstName, String lastName, String ageString, double height) {
 
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.ageString = ageString;
-        this.height = height;
-    }
+
 
     public String getAgeString() {
         return ageString;

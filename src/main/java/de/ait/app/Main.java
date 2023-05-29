@@ -78,8 +78,6 @@ public class Main {
                                 " Повторите еще раз создание пользователя");
                     break;
 
-                    }else {
-                      ageUserString = ageUser + "|";
                     }
                         System.out.println("Введите рост");
                     try {
@@ -104,22 +102,10 @@ public class Main {
                         height = tempResult + "|";
 
                     }
+                    User user = new User(name,familyName,ageUser,tempResult);
+                    usersRepository.addPerson(user);
 
-                    System.out.println("Куда добавить нового пользователя?");
-                    System.out.println("1. В текстовый файл");
-                    System.out.println("2. В лист пользователей");
-                    scanner.nextLine();
 
-                    String answer = scanner.nextLine();
-                    if (answer.charAt(0) == '1'){
-                        User user = new User(name,familyName,ageUserString,tempResult);
-                        UsersRepositoryTextFileImpl usersRepositoryTextFile = new UsersRepositoryTextFileImpl("");
-                        usersRepositoryTextFile.addPerson(user);
-                    } else if (answer.charAt(0) == '2') {
-                        User user = new User(name,familyName,ageUser,tempResult);
-                        UsersRepositoryListImpl usersRepositoryList = new UsersRepositoryListImpl();
-                        usersRepositoryList.addPerson(user);
-                    }
                     break;
 
                 case 4:

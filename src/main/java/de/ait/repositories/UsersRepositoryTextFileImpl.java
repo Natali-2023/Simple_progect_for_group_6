@@ -43,9 +43,11 @@ public class UsersRepositoryTextFileImpl implements UsersRepository {
     public void addPerson(User user) {
 
 
+
         try (FileWriter writer = new FileWriter("users.txt", true)) {
+            String ageString = String.valueOf(user.getAge());
             String result1 = user.getFirstName() + user.getLastName()
-                    + user.getAgeString() + user.getHeight();
+                    + ageString + "|" + user.getHeight();
             writer.write("\n");
             writer.write(result1);
 
